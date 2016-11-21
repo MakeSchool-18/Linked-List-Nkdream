@@ -10,9 +10,11 @@ class Node(object):
         self.data = data
         self.next = None
 
+
     def __repr__(self):
         """Return a string representation of this node"""
         return 'Node({})'.format(repr(self.data))
+
 
 
 class LinkedList(object):
@@ -45,22 +47,50 @@ class LinkedList(object):
 
     def length(self):
         """Return the length of this linked list by traversing its nodes"""
-        # TODO: count number of items
+        # TODO:
+        #for numberofnodes in Node :
+                #return numberofnodes
+
+
         pass
 
     def append(self, item):
         """Insert the given item at the tail of this linked list"""
-        # TODO: append given item
+        #create a new node
+        newNode = Node(item)
+        #find node at tail
+        self.tail
+
+        #point from that last node in tail to new node
+        if self.tail == None :
+            self.tail = newNode
+            self.head = newNode
+            return
+
+        self.tail.next = newNode
+        #point tail to newNode
+        self.tail = newNode
+
+
+
+
+
+
+
+
         pass
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list"""
         # TODO: prepend given item
+        newNode = Node(item)
+        self.head = newNode
         pass
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError"""
         # TODO: find given item and delete if found
+
         pass
 
     def find(self, quality):
