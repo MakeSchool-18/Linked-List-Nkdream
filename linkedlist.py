@@ -48,11 +48,18 @@ class LinkedList(object):
     def length(self):
         """Return the length of this linked list by traversing its nodes"""
         # TODO:
-        #for numberofnodes in Node :
-                #return numberofnodes
+        #set a counter
+        myint = 0
+        #create a pointer that points to head
+        firstNode = self.head
+        #while the firstNode has a value +1 to the counter
+        while firstNode is not  None:
+            myint+=1
+            firstNode = firstNode.next
+        return myint
 
 
-        pass
+
 
     def append(self, item):
         """Insert the given item at the tail of this linked list"""
@@ -60,7 +67,6 @@ class LinkedList(object):
         newNode = Node(item)
         #find node at tail
         self.tail
-
         #point from that last node in tail to new node
         if self.tail == None :
             self.tail = newNode
@@ -70,32 +76,40 @@ class LinkedList(object):
         self.tail.next = newNode
         #point tail to newNode
         self.tail = newNode
-
-
-
-
-
-
-
-
         pass
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list"""
         # TODO: prepend given item
-        newNode = Node(item)
-        self.head = newNode
+        if self.head == None:
+            self.head = Node(item)
+            self.tail = Node(item)
+            return
+        nodeNew = Node(item)
+        nodeNew.next = self.head
+        self.head = nodeNew
         pass
+
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError"""
         # TODO: find given item and delete if found
-
-        pass
+        cur = self.head
+        # while cur.next is not None:
+        #         if cur.next == item:
+        #             nextNode = cur.next.next
+        #             cur.next = nextNode
+        #             break
+        #         pass
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality"""
         # TODO: find item where quality(item) is True
+        current = self.head
+        while current is not None:
+            result.append(current.data)
+            # result.append(current)
+            current = current.next
         pass
 
 
