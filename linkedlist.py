@@ -90,14 +90,16 @@ class LinkedList(object):
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list"""
-        if self.head == None:
-            self.head = Node(item)
-            self.tail = Node(item)
-            return
         nodeNew = Node(item)
-        nodeNew.next = self.head
+
+        if self.head == None:
+            self.head = nodeNew
+            self.tail = nodeNew
+            return
+
+        self.head.next = nodeNew
         self.head = nodeNew
-    
+
 
 
     def delete(self, item):
