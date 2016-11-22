@@ -15,7 +15,20 @@ class Node(object):
         """Return a string representation of this node"""
         return 'Node({})'.format(repr(self.data))
 
+    def getData(self):
+        return self.data
 
+
+    def getNext(self):
+        return self.next
+
+
+    def setData(self,newdata):
+        self.data = newdata
+
+
+    def setNext(self,newnext):
+        self.next = newnext
 
 class LinkedList(object):
 
@@ -47,12 +60,11 @@ class LinkedList(object):
 
     def length(self):
         """Return the length of this linked list by traversing its nodes"""
-        # TODO:
         #set a counter
         myint = 0
         #create a pointer that points to head
         firstNode = self.head
-        #while the firstNode has a value +1 to the counter
+        #while the firstNode has a value add +1 to the counter
         while firstNode is not  None:
             myint+=1
             firstNode = firstNode.next
@@ -66,7 +78,6 @@ class LinkedList(object):
         #create a new node
         newNode = Node(item)
         #find node at tail
-        self.tail
         #point from that last node in tail to new node
         if self.tail == None :
             self.tail = newNode
@@ -76,11 +87,9 @@ class LinkedList(object):
         self.tail.next = newNode
         #point tail to newNode
         self.tail = newNode
-        pass
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list"""
-        # TODO: prepend given item
         if self.head == None:
             self.head = Node(item)
             self.tail = Node(item)
@@ -88,28 +97,48 @@ class LinkedList(object):
         nodeNew = Node(item)
         nodeNew.next = self.head
         self.head = nodeNew
-        pass
+    
 
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError"""
         # TODO: find given item and delete if found
-        cur = self.head
-        # while cur.next is not None:
-        #         if cur.next == item:
-        #             nextNode = cur.next.next
-        #             cur.next = nextNode
-        #             break
-        #         pass
+        current = self.head
+        previous = None
+        found = False
+        while not found:
+            if current.getData() == item:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+
+                if previous == None:
+                    self.head = current.getNext()
+                else:
+                    previous.setNext(current.getNext())
+            pass
+
+
+        # current = self.head
+        # previous  = None
+        # found = False
+        # while not found:
+        #     if current == item:
+        #         found = True
+        #     else:
+        #         previous = current
+        #         current = current.next
+        #         if previous == None:
+        #             self.head = current.next
+        #         else:
+        #             previous.next = current.next
+        #     pass
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality"""
         # TODO: find item where quality(item) is True
-        current = self.head
-        while current is not None:
-            result.append(current.data)
-            # result.append(current)
-            current = current.next
+
         pass
 
 
