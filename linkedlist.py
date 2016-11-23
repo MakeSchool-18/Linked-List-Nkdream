@@ -107,19 +107,29 @@ class LinkedList(object):
         # TODO: find given item and delete if found
         current = self.head
         previous = None
-        found = False
-        while not found:
-            if current.getData() == item:
-                found = True
-            else:
-                previous = current
-                current = current.getNext()
 
-                if previous == None:
-                    self.head = current.getNext()
-                else:
-                    previous.setNext(current.getNext())
-            pass
+        while current is not None:
+            if current.getData() == item:
+                if self.head == current:
+                    self.head = current.next
+                if self.tail == current:
+                    self.tail = previous
+                if previous:
+                    previous.next = current.next
+                return
+            previous = current
+            current = current.next
+
+        raise ValueError('Item not found: {}'.format(item))
+            # else:
+            #     previous = current
+            #     current = current.getNext()
+            #
+            #     if previous == None:
+            #         self.head = current.getNext()
+            #     else:
+            #         previous.setNext(current.getNext())
+            # pass
 
 
         # current = self.head
