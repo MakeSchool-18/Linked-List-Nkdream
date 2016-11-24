@@ -104,7 +104,6 @@ class LinkedList(object):
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError"""
-        # TODO: find given item and delete if found
         current = self.head
         previous = None
 
@@ -121,37 +120,21 @@ class LinkedList(object):
             current = current.next
 
         raise ValueError('Item not found: {}'.format(item))
-            # else:
-            #     previous = current
-            #     current = current.getNext()
-            #
-            #     if previous == None:
-            #         self.head = current.getNext()
-            #     else:
-            #         previous.setNext(current.getNext())
-            # pass
-
-
-        # current = self.head
-        # previous  = None
-        # found = False
-        # while not found:
-        #     if current == item:
-        #         found = True
-        #     else:
-        #         previous = current
-        #         current = current.next
-        #         if previous == None:
-        #             self.head = current.next
-        #         else:
-        #             previous.next = current.next
-        #     pass
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality"""
         # TODO: find item where quality(item) is True
+        current = self.head
+        found = False
+        while current != None and not found:
+                 if current.getData() == quality:
+                     found = True
+        else:
+            current = current.getNext()
 
-        pass
+            return found
+
+
 
 
 def test_linked_list():
