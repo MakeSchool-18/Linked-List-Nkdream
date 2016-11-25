@@ -123,17 +123,17 @@ class LinkedList(object):
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality"""
-        # TODO: find item where quality(item) is True
+         #TODO: find item where quality(item) is True
         current = self.head
-        found = False
-        while current != None and not found:
-                 if current.getData() == quality:
-                     found = True
-        else:
-            current = current.getNext()
 
-            return found
+        while current:
+            if quality(current.data):
+                return current.data
+            else:
+                current = current.next
+            if current is None:
 
+                return None
 
 
 
@@ -149,7 +149,6 @@ def test_linked_list():
     print('head: ' + str(ll.head))
     print('tail: ' + str(ll.tail))
     print(ll.length())
-
     ll.delete('A')
     print(ll)
     ll.delete('C')
@@ -159,6 +158,13 @@ def test_linked_list():
     print('head: ' + str(ll.head))
     print('tail: ' + str(ll.tail))
     print(ll.length())
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
